@@ -1,3 +1,11 @@
+
+@font-face {
+    font-family: 'DFVNKonde';
+    src: url('../fonts/DFVN-Konde-Black.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 :root{--navy:#071523;--deep:#030d19;--panel:#0d2136;--panel-2:#102841;--blue:#133f5b;--gold:#e7c47d;--gold-light:#f8e6b1;--white:#f3f6fa;--muted:#a0b3c8;--line:rgba(198,218,240,.14);--serif:'Segoe UI','Noto Sans',Tahoma,Arial,sans-serif;--sans:'Segoe UI','Noto Sans',Tahoma,Arial,sans-serif;--container:1190px}
 *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--navy);color:var(--white);font-family:var(--sans);font-size:14px;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}body::before{content:'';pointer-events:none;position:fixed;z-index:30;inset:0;opacity:.15;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.11' filter='url(%23n)'/%3E%3C/svg%3E")}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.skip-link{position:absolute;z-index:200;top:-60px;left:12px;background:var(--gold);color:#071421;padding:10px 16px}.skip-link:focus{top:12px}.container{width:min(calc(100% - 48px),var(--container));margin-inline:auto}.container-wide{width:min(calc(100% - 60px),1360px);margin-inline:auto}.section{padding:112px 0}.kicker,.small-overline,.eyebrow,.mini-kicker{font-size:10px;line-height:1.6;letter-spacing:.26em;font-weight:700;color:var(--gold);text-transform:uppercase}.section-title{font:700 clamp(29px,3.6vw,49px)/1.33 var(--serif);letter-spacing:-.025em;margin:16px 0 24px}.section-title em,.interior-title em,.closing-content em,.home-hero h1 em{color:var(--gold);font-style:normal}.section-header{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:42px}.section-header .section-title{margin-bottom:0}.section-header>p{max-width:340px;color:var(--muted);margin:0 0 7px;font-size:13px}.text-arrow{display:inline-flex;align-items:center;gap:20px;color:var(--gold-light);font-weight:600;font-size:13px;transition:gap .25s,color .25s}.text-arrow span{font-size:20px}.text-arrow:hover{gap:30px;color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:51px;padding:0 23px;border:1px solid transparent;white-space:nowrap;font-weight:700;font-size:12px;letter-spacing:.02em;transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}.btn:hover{transform:translateY(-3px)}.btn>span{font-size:17px}.btn-gold{background:linear-gradient(135deg,#f3d996,#d7a956);color:#112333;box-shadow:0 8px 38px rgba(221,169,76,.17)}.btn-gold:hover{box-shadow:0 10px 44px rgba(221,169,76,.32)}.btn-ghost{color:#fff;border-color:rgba(255,255,255,.46);background:rgba(4,16,31,.38)}.btn-ghost:hover{border-color:var(--gold);background:rgba(17,45,71,.7)}.btn-ghost-gold{border-color:var(--gold);color:var(--gold);background:rgba(4,15,31,.7)}.btn-ghost-gold:hover{background:var(--gold);color:var(--navy)}
 /* navigation */
@@ -68,3 +76,125 @@
 @media (max-width:600px) {
   .hero-visual img {width:80%; height:auto; max-height:none;}
 }
+
+/* Can giua noi dung card toc he */
+.factions .tribe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    min-height: 230px;
+    padding: 25px;
+}
+
+/* Bieu tuong nam chinh giua */
+.factions .tribe-symbol {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.factions .tribe-symbol img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Can giua ten va mo ta */
+.factions .tribe-card > div {
+    width: 100%;
+    text-align: center;
+}
+
+/* Bo vong tron bao quanh bieu tuong */
+.factions .tribe-symbol {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bo hieu ung vong tron neu co */
+.factions .tribe-symbol::before,
+.factions .tribe-symbol::after {
+    display: none !important;
+}
+
+/* Giu nguyen hinh dang bieu tuong */
+.factions .tribe-symbol img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+
+@font-face {
+    font-family: 'DFVNKonde';
+    src: url('../fonts/DFVN%20Konde%20Black.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hero h1,
+.hero-title,
+.section-title,
+.section-title em {
+    font-family: 'DFVNKonde', Arial, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+
+/* Tieu de 6 toc he nam tren 1 hang */
+.factions .section-header {
+    display: block;
+}
+
+.factions .section-header > div {
+    width: 100%;
+    max-width: none;
+}
+
+.factions .section-title {
+    font-family: 'DFVNKonde', Arial, sans-serif !important;
+    font-size: clamp(14px, 3.8vw, 52px) !important;
+    font-weight: 400;
+    white-space: nowrap;
+    letter-spacing: 0;
+    line-height: 1.3;
+}
+
+.factions .section-title em {
+    font-family: inherit !important;
+    white-space: nowrap;
+    font-style: normal;
+}
+
+/* Mo ta nam ben duoi */
+.factions .section-header > p {
+    margin-top: 18px;
+}
+
+
+
+
+
