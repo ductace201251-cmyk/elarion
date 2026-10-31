@@ -10,12 +10,13 @@
   document.querySelectorAll('.mobile-nav a').forEach(link=>link.addEventListener('click',closeMenu));
   window.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
   window.addEventListener('resize',()=>{if(window.innerWidth>820)closeMenu();});
-  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const targets=[...document.querySelectorAll('.tribe-card, .team-card, .mechanic-grid article, .box-item, .tease-copy, .story-heading, .story-copy')];
-    targets.forEach(t=>t.classList.add('reveal'));
+  window.ELARION_initReveal = function(root = document) {
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const targets=[...root.querySelectorAll('.tribe-card, .team-card, .mechanic-grid article, .box-item, .tease-copy, .story-heading, .story-copy')];
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
       if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
     }),{rootMargin:'0px 0px -20px 0px',threshold:.08});
-    targets.forEach(t=>observer.observe(t));
-  }
+    targets.forEach(t=>{t.classList.add('reveal');observer.observe(t);});
+  };
+  window.ELARION_initReveal();
 })();

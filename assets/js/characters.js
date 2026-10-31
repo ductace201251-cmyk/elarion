@@ -10,7 +10,7 @@ window.ELARION_CHARACTERS = [
     "role": "Kẻ nghịch chuyển thời gian",
     "style": "Fantasy – Steampunk",
     "personality": "\nTinh nghịch, tò mò, mạnh mẽ và khá bướng bỉnh. Cô thường tỏ ra vui vẻ, nhưng sâu bên trong luôn muốn chứng minh bản thân sau nhiều năm bị xem là người thất bại của gia tộc.",
-    "interests": "\nSưu tầm và sửa đồng hồ cổ, nghiên cứu cổ vật, khám phá những nơi bị bỏ quên, đọc tài liệu lịch sử và ngắm bầu trời đêm.",
+    "interests": "\nSưu tầm và sửa đồng hồ cổ, nghiên cứu cổ vật, khám phá những nơi bị bỏ quên, đọc tài liệu lịch sử và ngắm bầu trời đêm",
     "ability": "\nNoctis có thể quay ngược trạng thái của một vật hoặc một khoảnh khắc trong thời gian. Ngoài ra, cô có thể nhìn thấy dấu vết của quá khứ và tạm thời khóa chuyển động của mục tiêu.",
     "story": "\nNoctis sinh ra trong Tộc Horologia, nơi mọi người đều thức tỉnh năng lực từ rất sớm. Tuy nhiên đến năm 18 tuổi, cô vẫn chưa có bất kỳ sức mạnh nào và bị xem là nỗi thất vọng của tộc.\nThay vì bỏ cuộc, cô dành thời gian nghiên cứu đồng hồ cổ và những bí mật về thời gian. Trong một lần khám phá khu vực bị phong ấn, Noctis chạm vào một cổ vật hình trăng khuyết và đồng hồ. Chiếc kim bất ngờ quay ngược, đánh thức năng lực thật sự trong cô.\nTừ đó, Noctis sở hữu khả năng nghịch chuyển thời gian và bắt đầu hành trình tìm hiểu nguồn gốc sức mạnh của mình cũng như bí mật mà Tộc Horologia đã che giấu.",
     "accent": "#e9bb70"

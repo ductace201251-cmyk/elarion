@@ -1,6 +1,7 @@
-(() => {
+window.ELARION_initCharacters = (preferredCharacter = null) => {
   const characters = window.ELARION_CHARACTERS || [];
   const shell=document.getElementById('profile');
+  const assetsBase = document.body.classList.contains('spa-mode') ? 'assets/' : '../assets/';
   const buttons=[...document.querySelectorAll('[data-character]')];
   if(!shell || characters.length===0) return;
   const text = (v) => String(v??'');
@@ -15,14 +16,14 @@
     if(activeTab==='story')return `<p>${escapeHtml(c.story)}</p>`;
     return `<p><strong style="color:#e7c47d">Tính cách.</strong> ${escapeHtml(c.personality)}</p><p><strong style="color:#e7c47d">Sở thích.</strong> ${escapeHtml(c.interests)}</p>`;
   }
-  function selectCharacter(slug,{scroll=false,updateURL=true}={}){
+  function selectCharacter(slug,{scroll=false}={}){
     const c=slugMap.get(slug)||characters[0];
     active=c.slug;activeTab='overview';
     buttons.forEach(btn=>{const chosen=btn.dataset.character===active;btn.classList.toggle('is-selected',chosen);btn.setAttribute('aria-pressed',String(chosen));});
     const i=characters.findIndex(x=>x.slug===active);
     shell.style.setProperty('--profile-accent',c.accent);
     shell.innerHTML=`<div class="profile-topline"><span>CHARACTER FILE / ${escapeHtml(c.faction.toUpperCase())}</span><span class="profile-count">0${i+1} / 06</span></div>
-    <div class="profile-main"><div class="profile-visual"><img src="assets/images/${c.slug}-full.webp" alt="Minh họa nhân vật ${escapeHtml(c.name)}" width="720" height="1050"><span class="profile-visual-label">0${i+1}</span></div>
+    <div class="profile-main"><div class="profile-visual"><img src="${assetsBase}images/${c.slug}-full.webp" alt="Minh họa nhân vật ${escapeHtml(c.name)}" width="720" height="1050"><span class="profile-visual-label">0${i+1}</span></div>
     <div class="profile-content"><span class="kicker">${escapeHtml(c.faction)} / ${escapeHtml(c.element)}</span><h2 class="profile-name">${escapeHtml(c.name)}</h2><p class="profile-role">${escapeHtml(c.role)}</p>
     <div class="profile-data-grid">${field('TUỔI',c.age)}${field('CHIỀU CAO',c.height)}${field('GIỚI TÍNH',c.gender)}${field('PHONG CÁCH',c.style)}</div>
     <div class="profile-tabs" role="tablist" aria-label="Thông tin nhân vật">${tabs.map(([id,label])=>`<button class="profile-tab" role="tab" type="button" id="tab-${id}" data-tab="${id}" aria-controls="character-tabpanel" aria-selected="${activeTab===id}" tabindex="${activeTab===id?'0':'-1'}">${label}</button>`).join('')}</div>
@@ -40,11 +41,14 @@
       shell.querySelector(`[data-tab="${tabs[next][0]}"]`)?.click();shell.querySelector(`[data-tab="${tabs[next][0]}"]`)?.focus();
     });
     shell.querySelector('#next-character')?.addEventListener('click',()=>selectCharacter(characters[(i+1)%characters.length].slug,{scroll:true}));
-    if(updateURL){const url=new URL(window.location.href);url.searchParams.set('character',c.slug);url.hash='profile';try { history.replaceState(null,'',url); } catch (error) { /* Local file previews may restrict history updates. */ }}
     if(scroll){shell.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
   }
   buttons.forEach(btn=>btn.addEventListener('click',()=>selectCharacter(btn.dataset.character,{scroll:true})));
-  const initial=new URLSearchParams(location.search).get('character');
-  selectCharacter(initial||'noctis',{scroll:false,updateURL:!!initial});
-  if(location.hash==='#profile'&&initial){requestAnimationFrame(()=>shell.scrollIntoView({block:'start'}));}
-})();
+  const initial=preferredCharacter || new URLSearchParams(location.search).get('character');
+  selectCharacter(initial||'noctis',{scroll:false});
+  if(!document.body.classList.contains('spa-mode') && location.hash==='#profile'&&initial){requestAnimationFrame(()=>shell.scrollIntoView({block:'start'}));}
+};
+// Also support opening the character/index.html page directly without the SPA.
+if (document.body.classList.contains('page-character') && !document.body.classList.contains('spa-mode')) {
+  window.ELARION_initCharacters();
+}
