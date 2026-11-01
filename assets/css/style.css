@@ -2517,3 +2517,8 @@ a:focus-visible,
         transition: none !important;
     }
 }
+.js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+}
